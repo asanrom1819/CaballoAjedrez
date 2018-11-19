@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class DireccionTest {
 
-	/*@Test
+	@Test
 	public void direccionesValidasTest() {
 		//Pasará el test si hemos nombrado bien las direcciones
 		Direccion direccion;
@@ -25,6 +25,6 @@ public class DireccionTest {
 		assertEquals(Direccion.IZQUIERDA_ARRIBA, direccion);
 		direccion = Direccion.IZQUIERDA_ABAJO;
 		assertEquals(Direccion.IZQUIERDA_ABAJO, direccion);
-	}*/
+	}
 
 }
