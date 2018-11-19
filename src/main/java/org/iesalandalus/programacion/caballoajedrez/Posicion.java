@@ -139,4 +139,9 @@ public class Posicion {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "[fila=" + this.fila + ", columna=" + this.columna + "a]";
+	}
 }
