@@ -11,6 +11,9 @@
  * 
  * Actividad 14
  * Se crea un constructor que solicite el color y posicione el caballo según el color.
+ * 
+ * Actividad 15
+ * Se crea un constructor que solicite el color y la posición de su columna.
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -26,8 +29,8 @@ public class Caballo {
 	 * @throws IllegalArgumentException Si no es posible crearlo en la posición 8B.
 	 */
 	public Caballo() throws IllegalArgumentException {
-		this.color = Color.NEGRO;
-		this.posicion = new Posicion(8, 'b');
+		this.setColor(Color.NEGRO);
+		this.setPosicion(new Posicion(8, 'b'));
 	}
 	
 	/**
@@ -42,15 +45,37 @@ public class Caballo {
 		if(color == null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
 		else {
 			//Asignamos el color
-			this.color = color;
+			this.setColor(color);;
 			
 			//Depende del color asignamos una posición u otra
 			if (this.color == Color.BLANCO) {
-				this.posicion = new Posicion(1, 'b');
+				this.setPosicion(new Posicion(1, 'b'));
 			} else {
-				this.posicion = new Posicion(8,'b');
+				this.setPosicion(new Posicion(8, 'b'));
 			}
 		}
+	}
+	
+	/**
+	 * Crea un nuevo caballo con el color y la fila indicada. La columna ha de ser 'b' o 'g'.
+	 * @param color El color del caballo, determinará su fila.
+	 * @param columna La columna del caballo, puede ser 'b' o 'g'.
+	 * @throws IllegalArgumentException Si el parámetro color apunta a null o la columna es inadecuada.
+	 */
+	public Caballo(Color color, char columna) throws IllegalArgumentException {
+		//Se comprueba que el color no es nulo.
+		if (color == null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+		//Se comprueba si la columna es válida.
+		if (columna != 'g' &&
+				columna != 'G' &&
+				columna != 'b' &&
+				columna != 'B') throw new IllegalArgumentException("ERROR: Columna inicial no válida.");
+		
+		//Si pasa las comprobaciones
+		this.setColor(color);
+		
+		if (this.color == Color.BLANCO) this.setPosicion(new Posicion(1, columna));
+		else this.setPosicion(new Posicion(8, columna));
 	}
 	
 	/*Métodos get y set*/
@@ -83,7 +108,7 @@ public class Caballo {
 	 */
 	private void setColor(Color color) throws IllegalArgumentException {
 		//Se valida el parámetro para que éste no apunte a null.
-		if (color == null) throw new IllegalArgumentException("La instancia de Color apunta a null");
+		if (color == null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
 		else {
 			this.color = color;
 		}
