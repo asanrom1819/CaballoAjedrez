@@ -8,6 +8,9 @@
  * 
  * Actividad 07
  * Se crea un constructor
+ * 
+ * Actividad 08
+ * Se crea un constructor de copia
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -34,6 +37,21 @@ public class Posicion {
 		//Se llaman a los m�todos de la clase con las validaciones
 		this.setFila(fila);
 		this.setColumna(columna);
+	}
+	
+	/**
+	 * Constructor de copia de la clase.
+	 * @param posicion La instancia de la clase que se quiere duplicar.
+	 * @throws IllegalArgumentException Cuando se pasa un valor que apunta a null.
+	 */
+	public Posicion(Posicion posicion) throws IllegalArgumentException {
+		//Se verifica que el parámetro no sea nulo.
+		if(posicion == null) throw new IllegalArgumentException();
+		else {
+			//Se copian los valores de la posición suministrada.
+			this.fila = posicion.getFila();
+			this.columna = posicion.getColumna();
+		}
 	}
 	
 	/*M�todos set y get*/

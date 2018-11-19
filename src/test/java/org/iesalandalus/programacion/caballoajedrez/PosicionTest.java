@@ -34,7 +34,7 @@ public class PosicionTest {
 		}
 	}
 	
-	/*@Test
+	@Test
 	public void constructorCopiaTest() {
 		Posicion posicion = new Posicion(1, 'a');
 		Posicion nuevaPosicion = new Posicion(posicion);
@@ -86,7 +86,7 @@ public class PosicionTest {
 		}
 	}
 	
-	@Test
+	/*@Test
 	public void igualdadTest() {
 		Posicion posicion1, posicion2, posicion3, posicion4, posicion5;
 		posicion1 = new Posicion(1, 'a');
