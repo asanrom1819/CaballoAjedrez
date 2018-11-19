@@ -34,7 +34,20 @@ public class CaballoTest {
 	public void constructorUnParametroNoValidoTest() {
 		Caballo caballo = null;
 		try {
-			caballo = new Caballo(null);
+			/*
+			 * Al crear el constructor de copia el test no puede diferenciar a éste del constructor que
+			 * indica el color del caballo con la siguiente sentencia
+			 * */
+			
+			//caballo = new Caballo(null);
+			
+			/*
+			 * Se sustituye la sentencia anterior por la siguiente para que la prueba tenga validez
+			 * */
+			
+			Color aux = null;
+			caballo = new Caballo(aux);
+			
 			fail("Debería haber saltado una excepción indicando que no se puede crear un caballo de ningún color.");
 		} catch (Exception e) {
 			assertEquals("ERROR: No se puede asignar un color nulo.", e.getMessage());

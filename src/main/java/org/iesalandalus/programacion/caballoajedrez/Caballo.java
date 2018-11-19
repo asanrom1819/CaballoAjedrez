@@ -14,6 +14,9 @@
  * 
  * Actividad 15
  * Se crea un constructor que solicite el color y la posición de su columna.
+ * 
+ * Actividad 16
+ * Se crea un constructor de copia
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -76,6 +79,20 @@ public class Caballo {
 		
 		if (this.color == Color.BLANCO) this.setPosicion(new Posicion(1, columna));
 		else this.setPosicion(new Posicion(8, columna));
+	}
+	
+	/**
+	 * Crea un nuevo caballo que es copia de otro suministrado como parámetro.
+	 * @param caballo El caballo que se quiere duplicar.
+	 * @throws IllegalArgumentException Cuando el parámetro suministrado apunta a null.
+	 */
+	public Caballo(Caballo caballo) throws IllegalArgumentException {
+		//Se comprueba el parámetro suministrado
+		if (caballo == null) throw new IllegalArgumentException("El parámetros suministrado apunta a null.");
+		else {
+			this.setColor(caballo.getColor());
+			this.setPosicion(new Posicion(caballo.getPosicion()));
+		}
 	}
 	
 	/*Métodos get y set*/
