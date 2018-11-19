@@ -19,6 +19,8 @@
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Esta clase determina y modifa la posici�n de la pieza del
  * caballo en un tablero de ajedrez.
@@ -51,7 +53,7 @@ public class Posicion {
 	 */
 	public Posicion(Posicion posicion) throws IllegalArgumentException {
 		//Se verifica que el parámetro no sea nulo.
-		if(posicion == null) throw new IllegalArgumentException();
+		if(posicion == null) throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
 		else {
 			//Se copian los valores de la posición suministrada.
 			this.fila = posicion.getFila();
@@ -59,7 +61,7 @@ public class Posicion {
 		}
 	}
 	
-	/*M�todos set y get*/
+	/*Métodos set y get*/
 	
 	/**
 	 * Determina la fila actual de la pieza.
@@ -69,8 +71,8 @@ public class Posicion {
 	 */
 	public void setFila(int fila) throws IllegalArgumentException {
 		//Se comprueba que el valor es correcto
-		if(fila < 0 || fila > 8) {
-			//Si es incorrecto sale con una excepci�n.
+		if(fila < 1 || fila > 8) {
+			//Si es incorrecto sale con una excepción.
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
 		} else {
 			this.fila = fila;
@@ -147,6 +149,6 @@ public class Posicion {
 	
 	@Override
 	public String toString() {
-		return "[fila=" + this.fila + ", columna=" + this.columna + "a]";
+		return "[fila=" + this.fila + ", columna=" + this.columna + "]";
 	}
 }

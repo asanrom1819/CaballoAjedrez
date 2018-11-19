@@ -8,6 +8,9 @@
  * 
  * Actividad 13
  * Se crea un constructor por defecto para un caballo negro en la posición 8B.
+ * 
+ * Actividad 14
+ * Se crea un constructor que solicite el color y posicione el caballo según el color.
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -25,6 +28,29 @@ public class Caballo {
 	public Caballo() throws IllegalArgumentException {
 		this.color = Color.NEGRO;
 		this.posicion = new Posicion(8, 'b');
+	}
+	
+	/**
+	 * Crea un nuevo caballo y asigna su posición en el tablero dependiendo de su color.
+	 * Blanco: 1b
+	 * Negro: 8b
+	 * @param color El color del nuevo caballo.
+	 * @throws IllegalArgumentException Cuando se suministra un parámetro que apunte a null.
+	 */
+	public Caballo(Color color) throws IllegalArgumentException {
+		//Comprobamos que el parámetro no es nulo.
+		if(color == null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+		else {
+			//Asignamos el color
+			this.color = color;
+			
+			//Depende del color asignamos una posición u otra
+			if (this.color == Color.BLANCO) {
+				this.posicion = new Posicion(1, 'b');
+			} else {
+				this.posicion = new Posicion(8,'b');
+			}
+		}
 	}
 	
 	/*Métodos get y set*/
