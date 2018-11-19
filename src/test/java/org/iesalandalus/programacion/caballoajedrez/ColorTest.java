@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class ColorTest {
 
-	/*@Test
+	@Test
 	public void coloresValidosTest() {
 		//Pasará el test si se han nombrado correctamente los colores
 		Color color;
@@ -14,6 +14,6 @@ public class ColorTest {
 		assertEquals(Color.BLANCO, color);
 		color = Color.NEGRO;
 		assertEquals(Color.NEGRO, color);
-	}*/
+	}
 
 }
