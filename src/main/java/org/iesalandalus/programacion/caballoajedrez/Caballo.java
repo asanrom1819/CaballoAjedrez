@@ -5,6 +5,9 @@
  * 
  * Actividad 12
  * Se crean los métodos get y set
+ * 
+ * Actividad 13
+ * Se crea un constructor por defecto para un caballo negro en la posición 8B.
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -12,6 +15,17 @@ public class Caballo {
 	/*Atributos*/
 	private Color color;
 	private Posicion posicion;
+	
+	/*Constructores*/
+	
+	/**
+	 * Crea un caballo negro en la posición 8B.
+	 * @throws IllegalArgumentException Si no es posible crearlo en la posición 8B.
+	 */
+	public Caballo() throws IllegalArgumentException {
+		this.color = Color.NEGRO;
+		this.posicion = new Posicion(8, 'b');
+	}
 	
 	/*Métodos get y set*/
 	
