@@ -2,7 +2,6 @@
  * Actividad 05
  * Se crea la clase en el paquete indicado en el esquema de la tarea
  * 
- * 
  * Actividad 06
  * Se crean los m�todos get y set
  * 
@@ -11,6 +10,12 @@
  * 
  * Actividad 08
  * Se crea un constructor de copia
+ * 
+ * Actividad 09
+ * Se sobreescriben los métodos equals() y hashCode().
+ * 
+ * Actividad 10
+ * Se sobreescribe el método toString().
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
