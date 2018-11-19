@@ -1,11 +1,18 @@
 /*
  * Actividad 05
  * Se crea la clase en el paquete indicado en el esquema de la tarea
+ * 
+ * 
+ * Actividad 06
+ * Se crean los mï¿½todos get y set
+ * 
+ * Actividad 07
+ * Se crea un constructor
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
 /**
- * Esta clase determina y modifa la posición de la pieza del
+ * Esta clase determina y modifa la posiciï¿½n de la pieza del
  * caballo en un tablero de ajedrez.
  * @author asanrom
  *
@@ -15,7 +22,21 @@ public class Posicion {
 	private int fila;
 	private char columna;
 	
-	/*Métodos set y get*/
+	/*Constructores*/
+	
+	/**
+	 * Crea una instancia de la clase con los valores suministrados como parï¿½metros.
+	 * @param fila El valor de la fila de la pieza a crear (1-8).
+	 * @param columna El valor de la columna de la pieza a crear (a-h).
+	 * @throws IllegalArgumentException Cuando se pasan valores inadecuados.
+	 */
+	public Posicion(int fila, char columna) throws IllegalArgumentException {
+		//Se llaman a los mï¿½todos de la clase con las validaciones
+		this.setFila(fila);
+		this.setColumna(columna);
+	}
+	
+	/*Mï¿½todos set y get*/
 	
 	/**
 	 * Determina la fila actual de la pieza.
@@ -26,8 +47,8 @@ public class Posicion {
 	public void setFila(int fila) throws IllegalArgumentException {
 		//Se comprueba que el valor es correcto
 		if(fila < 0 || fila > 8) {
-			//Si es incorrecto sale con una excepción.
-			throw new IllegalArgumentException("ERROR: Las filas van de 1 a 8.");
+			//Si es incorrecto sale con una excepciï¿½n.
+			throw new IllegalArgumentException("ERROR: Fila no vÃ¡lida.");
 		} else {
 			this.fila = fila;
 		}
@@ -47,14 +68,14 @@ public class Posicion {
 	 * @throws IllegalArgumentException Cuando se introduce un valor inadecuado.
 	 */
 	public void setColumna(char columna) throws IllegalArgumentException {
-		//Validación del parámetro.
+		//Validaciï¿½n del parï¿½metro.
 		
-		/* Según la tabla ascii los tramos válidos para las letras comprendidas
-		 * de la 'a' a la 'h', mayúsculas y minúsculas son los rangos 65-72 y
+		/* Segï¿½n la tabla ascii los tramos vï¿½lidos para las letras comprendidas
+		 * de la 'a' a la 'h', mayï¿½sculas y minï¿½sculas son los rangos 65-72 y
 		 * 97-104
 		 */
 		if ((columna < 65 || columna > 72) && (columna < 97 || columna > 104)) {
-			throw new IllegalArgumentException("ERROR: Las columnas van de la 'A' a la 'H'.");
+			throw new IllegalArgumentException("ERROR: Columna no vÃ¡lida.");
 		} else {
 			this.columna = columna;
 		}
