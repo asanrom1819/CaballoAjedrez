@@ -23,6 +23,9 @@
  * 
  * Actividad 18
  * Se generan los métodos equals y hashCode
+ * 
+ * Actividad 19
+ * Se hace override al método toString()
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
@@ -281,5 +284,14 @@ public class Caballo {
 		return true;
 	}
 	
+	/**
+	 * Se muestra una cadena de texto con la fila, la columna y el color del caballo
+	 */
+	@Override
+	public String toString() {
+		return "Caballo [posición=[fila=" + this.getPosicion().getFila() +
+				", columna=" + this.getPosicion().getColumna() + "], color=" +
+				this.color.toString() + "]";
+	}
 	
 }
