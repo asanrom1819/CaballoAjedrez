@@ -91,7 +91,7 @@ public class CaballoTest {
 		}
 	}
 	
-	/*@Test
+	@Test
 	public void movimientoValidoTest() {
 		Caballo caballoNegroDefecto = new Caballo();
 		try {
@@ -192,7 +192,7 @@ public class CaballoTest {
 		}
 	}
 	
-	@Test
+	/*@Test
 	public void toStringTest() {
 		Caballo caballo = new Caballo();
 		assertEquals("Caballo [posición=[fila=8, columna=b], color=NEGRO]", caballo.toString());

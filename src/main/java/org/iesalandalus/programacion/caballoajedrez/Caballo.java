@@ -17,9 +17,19 @@
  * 
  * Actividad 16
  * Se crea un constructor de copia
+ * 
+ * Actividad 17
+ * Se crea el método mover(Direccion direccion)
  * */
 package org.iesalandalus.programacion.caballoajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
+/**
+ * Simula un caballo en el tablero de ajedrez.
+ * @author asanrom
+ *
+ */
 public class Caballo {
 	/*Atributos*/
 	private Color color;
@@ -137,5 +147,98 @@ public class Caballo {
 	 */
 	public Color getColor() {
 		return this.color;
+	}
+	
+	/*Métodos propios*/
+	
+	/**
+	 * Dada una dirección posiciona el caballo donde le corresponda según su posición actual.
+	 * @param direccion La dirección en la que se quiere mover dentro del tablero.
+	 * @throws IllegalArgumentException Cuando se suministra una dirección que apunta a null.
+	 * @throws OperationNotSupportedException Cuando el movimiento no es válido (sale del tablero)
+	 */
+	public void mover(Direccion direccion) throws IllegalArgumentException, OperationNotSupportedException {
+		//Comprobamos el parámetro
+		if(direccion == null) throw new IllegalArgumentException("El parámetro Direccion suministrado apunta a null");
+		
+		//Variables
+		int auxFila;
+		int auxColumna;
+		
+		/*
+		 * El movimiento será válido si una vez movido el caballo en L en una dirección
+		 * dada el caballo se encuentra aún dentro de los límites del tablero.
+		 * */
+		
+		//El ordinal devuelve su posición en el array de valores
+		switch(direccion.ordinal()) {
+			case 0:
+				//Arriba Izquierda
+				auxFila = this.posicion.getFila() + 2;
+				auxColumna = this.posicion.getColumna() - 1;
+				break;
+			
+			case 1:
+				//Arriba Derecha
+				auxFila = this.posicion.getFila() + 2;
+				auxColumna = this.posicion.getColumna() + 1;
+				break;
+				
+			case 2:
+				//Derecha Arriba
+				auxFila = this.posicion.getFila() + 1;
+				auxColumna = this.posicion.getColumna() + 2;
+				break;
+				
+			case 3:
+				//Derecha Abajo
+				auxFila = this.posicion.getFila() - 1;
+				auxColumna = this.posicion.getColumna() + 2;
+				break;
+				
+			case 4:
+				//Abajo Derecha
+				auxFila = this.posicion.getFila() - 2;
+				auxColumna = this.posicion.getColumna() + 1;
+				break;
+				
+			case 5:
+				//Abajo Izquierda
+				auxFila = this.posicion.getFila() - 2;
+				auxColumna = this.posicion.getColumna() - 1;
+				break;
+				
+			case 6:
+				//Izquierda Arriba
+				auxFila = this.posicion.getFila() + 1;
+				auxColumna = this.posicion.getColumna() - 2;
+				break;
+				
+			case 7:
+				//Izquierda Abajo
+				auxFila = this.posicion.getFila() - 1;
+				auxColumna = this.posicion.getColumna() - 2;
+				break;
+				
+			default:
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+				
+		}//end switch
+		
+		//Validamos el movimiento de la fila.
+		if (auxFila < 1 || auxFila > 8) {
+			throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+		}
+		
+		//Validamos el movimiento de la columna.
+		if ((auxColumna < 65 || auxColumna > 72) && (auxColumna < 97 || auxColumna > 104)) {
+			throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+		}
+		
+		//Todo es correcto
+		
+		this.getPosicion().setFila(auxFila);
+		this.getPosicion().setColumna((char) auxColumna);
+		
 	}
 }
