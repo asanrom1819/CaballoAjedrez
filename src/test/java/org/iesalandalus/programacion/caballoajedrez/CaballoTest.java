@@ -92,29 +92,29 @@ public class CaballoTest {
 	}
 	
 	@Test
-	public void movimientoValidoTest() {
-		Caballo caballoNegroDefecto = new Caballo();
-		try {
-			caballoNegroDefecto.mover(Direccion.ABAJO_IZQUIERDA);
-			assertEquals(new Posicion(6, 'a'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.ABAJO_DERECHA);
-			assertEquals(new Posicion(4, 'b'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.ARRIBA_IZQUIERDA);
-			assertEquals(new Posicion(6, 'a'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.ARRIBA_DERECHA);
-			assertEquals(new Posicion(8, 'b'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.DERECHA_ABAJO);
-			assertEquals(new Posicion(7, 'd'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.IZQUIERDA_ABAJO);
-			assertEquals(new Posicion(6, 'b'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.DERECHA_ARRIBA);
-			assertEquals(new Posicion(7, 'd'), caballoNegroDefecto.getPosicion());
-			caballoNegroDefecto.mover(Direccion.IZQUIERDA_ARRIBA);
-			assertEquals(new Posicion(8, 'b'), caballoNegroDefecto.getPosicion());
-		} catch (OperationNotSupportedException e) {
-			// No debería saltar ninguna excepción ya que los movimientos son válidos
-		}
-	}
+    public void movimientoValidoTest() {
+        Caballo caballoNegroDefecto = new Caballo();
+        try {
+            caballoNegroDefecto.mover(Direccion.ABAJO_IZQUIERDA);
+            assertEquals(new Posicion(6, 'a'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.ABAJO_DERECHA);
+            assertEquals(new Posicion(4, 'b'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.ARRIBA_IZQUIERDA);
+            assertEquals(new Posicion(6, 'a'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.ARRIBA_DERECHA);
+            assertEquals(new Posicion(8, 'b'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.DERECHA_ABAJO);
+            assertEquals(new Posicion(7, 'd'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.IZQUIERDA_ABAJO);
+            assertEquals(new Posicion(6, 'b'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.DERECHA_ARRIBA);
+            assertEquals(new Posicion(7, 'd'), caballoNegroDefecto.getPosicion());
+            caballoNegroDefecto.mover(Direccion.IZQUIERDA_ARRIBA);
+            assertEquals(new Posicion(8, 'b'), caballoNegroDefecto.getPosicion());
+        } catch (OperationNotSupportedException e) {
+            fail("No debería saltar ninguna excepción ya que los movimientos son válidos.");
+        }
+    }
 	
 	@Test
 	public void movimientoNoValidoTest() {
